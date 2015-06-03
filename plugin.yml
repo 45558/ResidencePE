@@ -1,0 +1,7 @@
+name: ResidencePE
+main: ResidencePE/residence
+version: 0.0.1
+description: Residence Plugin
+author: CreeperFace
+
+commands:
