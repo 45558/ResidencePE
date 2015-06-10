@@ -1,69 +1,28 @@
 #These are Global Settings for Residence.
+---
 Global:
     # This loads the <language>.yml file in the Residence Language folder
     # All Residence text comes from this file. (NOT DONE YET)
-    Language: English
+    Language: "Czech"
     # Wooden Hoe is the default selection tool for Residence.
     # You can change it to another item ID listed here: http://www.minecraftwiki.net/wiki/Data_values
     SelectionToolId: 290
     # This determins which tool you can use to see info on residences, default is String.
     # Simply equip this tool and hit a location inside the residence and it will display the info for it.
     InfoToolId: 287
-    # The interval, in milliseconds, between movement checks.
-    # Reducing this will increase the load on the server.
-    # Increasing this will allow players to move further in movement restricted zones before they are teleported out.
-    MoveCheckInterval: 500
     # The interval, in minutes, between residence saves.
     SaveInterval: 10
     # The default group to use if Permissions fails to attach or your not using Permissions.
     DefaultGroup: default
-    # Enable / Disable the Lease System.
-    UseLeaseSystem: false
-    # The interval, in minutes, between residence lease checks (if leases are enabled).
-    LeaseCheckInterval: 10
-    # Allows leases to automatically renew so long as the player has the money, if economy is disabled, this setting does nothing.
-    LeaseAutoRenew: true
-    # Whether or not to use the Permissions system in conjunction with this config.
-    EnablePermissions: true
-    # Set to true if NOT using Permissions or PermissionsBukkit, or using a really old version of Permissions
-    LegacyPermissions: false
     # Enable / Disable Residence's Economy System (iConomy, MineConomy, Essentials, BOSEconomy, and RealEconomy supported).
     EnableEconomy: true
-    # Enables or disables the Rent System
-    EnableRentSystem: false
-    # The interval, in minutes, between residence rent expiration checks (if the rent system is enabled).
-    RentCheckInterval: 10
     # Enable or disable residence chat channels.
     ResidenceChatEnable: true
-    # True for ActionBar - new component in 1.8
-    # False for old Messaging in chat enter/leave Residence messages
-    UseActionBar: true
     # Color of residence chat.
     ResidenceChatColor: DARK_PURPLE
     # Whether or not to ignore the usual Permission flags and only allow OPs and groups with 'residence.admin' to change residences.
     AdminOnlyCommands: false
-    # Setting this to true makes server OPs admins.
-    AdminOPs: true
-    # This is the name of the plugin you use for multiworld, if you dont have a multiworld plugin you can safely ignore this.
-    # The only thing this does is check to make sure the multiworld plugin is enabled BEFORE Residence, to ensure properly loading residences for other worlds.
-    MultiWorldPlugin: Multiverse-Core
-    # Setting this to true causes subzones to inherit flags from their parent zones.
-    ResidenceFlagsInherit: true
-    # Setting this to false will allow rented residences to be modified by the renting player.
-    PreventRentModify: true
-    # Setting this to false will cause residence to continue to load even if a error is detected in the save file.
-    StopOnSaveFault: true
-    # This is the residence name filter, that filters out invalid characters.  Google "Java RegEx" or "Java Regular Expressions" for more info on how they work.
-    ResidenceNameRegex: '[^a-zA-Z0-9\\-\\_]'
-    # Setting this to true sends a message to the console every time Residence does a rent expire check or a lease expire check.
-    ShowIntervalMessages: false
-    # Check for new version when server start and connect OP. 
-    VersionCheck: true
-    # Experimental - The following settings are lists of block IDs to be used as part of the checks for the "container" and "use" flags when using mods.
-    CustomContainers: []
-    CustomBothClick: []
-    CustomRightClick: []
-    # These are world flags that are applied when the player is NOT within a residence.
+    #that are applied when the player is NOT within a residence.
     Flags:
         Global: #these are default for all worlds unless specified below, they can be overridden per group
             use: true
@@ -71,12 +30,9 @@ Global:
             ignite: true
             firespread: true
             damage: true
-            creeper: true
             tnt: true
             pvp: true
-        WorldNameHere: #here you can set flags for individual worlds, these override Global
-            #build: true
-    # This gives permission to change certain flags to all groups, unless specifically denied to the group.
+    # This gives permission to change certain flags to all players.
     FlagPermission:
         move: true
         build: true
@@ -92,27 +48,14 @@ Global:
         flow: true
         lavaflow: true
         waterflow: true
-        creeper: true
         tnt: true
-        monsters: true
-        animals: true
-        subzone: true
         healing: true
-        piston: true
-        diode: true
-        lever: true
-        button: true
         door: true
         table: true
-        enchant: true
-        brew: true
         bed: true
         cake: true
-        note: true
-        trample: false
         burn: true
         explode: false
-        fireball: true
     # These are default flags applied to all residences from any user group.
     ResidenceDefault:
         build: false
@@ -120,9 +63,7 @@ Global:
         container: false
         pvp: false
         tnt: false
-        creeper: false
         flow: false
-        piston: false
         ignite: false
         firespread: false
     # These are default flags applied to the residence creator of any group.
@@ -132,19 +73,9 @@ Global:
         use: true
         ignite: true
         container: true
-     # These are default group flags applied to a residence made by a user of any group.
-    GroupDefault:
-        #default: #group name
-            #build: true
-    
 # These groups correspond to the Permissions groups defined in your '<worldname>.yml'
 Groups:
-    Default: #group name
-       # Information about the Residence zone that the player can define.
-       #Uncomment the lines below to mirror this config to other groups.
-       #Mirror:
-         #- 'group1'
-         #- 'group2'
+    Default:
        Residence:
            # Determins if this group can create residences or not.  This option can be overriden with the permissions node 'residence.create'
            CanCreate: true
@@ -262,5 +193,4 @@ ItemList: #this is where you can create blacklists / whitelists
            - 'STATIONARY_LAVA'
            - 'STATIONARY_WATER'
            - 'MOB_SPAWNER'
-# Used to determine which major revision of Residence this config is from, dont change this.
-ResidenceVersion: 2
+...

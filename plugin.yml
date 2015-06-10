@@ -1,7 +1,6 @@
 name: ResidencePE
-main: ResidencePE/residence
 version: 0.0.1
-description: Residence Plugin
+api: 1.12.0
+main: ResidencePE\ResidencePE
 author: CreeperFace
-
-commands:
+description: Residence plugin ported from PC
