@@ -89,10 +89,6 @@ Language:
     BankWithdraw: 'Prave si vybral %1 z banky residence.'
     MoneyCharged: 'Nabil jsi svuj ucet %2 castkou %1.'
     MoneyCredit: '%1 bylo pricteno na tvuj ucet %2.'
-    RentDisabled: System najemneho je vypnuty.
-    RentReleaseInvalid: 'Residenci %1 neni k pronajmu.'
-    RentSellFail: Nelze prodat residenci s najemnikem.
-    SellRentFail: Nelze pronajimat residenci pokud je v prodeji.
     OwnerBuyFail: Nemuzes koupit vlastni pozemek!
     OwnerRentFail: Nemuzes si pronajmout vlastni pozemek!
     AlreadySellFail: Residence je jiz k prodeji!
@@ -103,33 +99,13 @@ Language:
     ResidenceForSale: 'Residence %1 je na prodej za %2'
     ResidenceStopSelling: Residence jiz neni na prodej.
     ResidenceTooMany: Jiz vlastnis maximalni pocet residenci.
-    ResidenceMaxRent: Jiz pronajimas maximalni pocet residenci.
-    ResidenceAlreadyRent: Residence je jiz pronajimana...
-    ResidenceNotForRent: Residence neni k pronajmu...
-    ResidenceNotRented: Residence neni pronajimana.
-    ResidenceUnrent: 'V residence %1 skoncil pronajem.'
-    ResidenceRemoveRentable: 'Residence %1 jiz neni dalo k pronajmu.'
-    ResidenceForRentSuccess: 'Residence %1 je nyni k pronajmuti za %2 za kazdy %3 den,dnu.'
-    ResidenceRentSuccess: 'Pronajal sis residenci %1 na %2 dny,dnu.'
-    ResidenceAlreadyRented: 'Residence %1 je pronajata hraci %2'
     ResidenceAlreadyExists: 'Residence jmena %1 jiz existuje.'
     ResidenceCreate: 'Vytvoril jsi residenci %1!'
     ResidenceRename: 'Residence %1 byla prejmenovana na %2'
     ResidenceRemove: 'Residence %1 byla smazana...'
     RentDisabled: Najimani je vypnuto...
-    RentDisableRenew: 'Nelze prodlouzit najem residence %1 dokud nevyprsi stavajici najem.'
-    RentEnableRenew: 'Residence %1 automaticky prodlouzi najem.'
-    RentableDisableRenew: 'V residenci %1 se po vyprseni najmu jiz najem neprodlouzi.'
-    RentableEnableRenew: 'V residenci %1 se po vyprseni najmu najem automaticky prodlouzi.'
     LandForSale: Pozemek je na prodej
     SellAmount: Cena
-    LeaseExpire: Doba pronajmu
-    RentExpire: Najem vyprsi
-    RentableAutoRenew: Najemnika automaticky prodlouzit
-    RentAutoRenew: Pronajem automaticky prodlouzit
-    RentableLand: Pozemek k pronajmu
-    ListMaterialAdd: 'Material %1 pridan do residence %2'
-    ListMaterialRemove: 'Material %1 odstranen z residence %2'
     ItemBlacklisted: Pouzivani tohoto itemu je zde zakazano - je na blacklistu.
     RentedModifyDeny: Neni mozno upravovat pronajimanou residenci.
     WorldPVPDisabled: World PVP is disabled.
@@ -153,7 +129,7 @@ Language:
     LeaseNotExpire: Najem neskoncil.
     LeaseRenewalCost: 'Cena za prodlozeni najmu %1 je %2'
     LeaseInfinite: Doba pronajmu nastavena na nekonecno...
-    PermissionsApply: Opravneni pouzite v residenci.
+    NotPermissions: Nemas opravneni k teto residenci.
     PhysicalAreas: Fyzicke oblasti
     CurrentArea: Soucasna oblast
     LeaseExpire: Najem vyprsel

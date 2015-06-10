@@ -29,7 +29,7 @@ class SelectionManager implements Listener{
         $tool = $this->cfg->getNested("Global.SelectionToolId");
         if($p->getInventory()->getItemInHand()->getId() === $tool){
             $this->selectors[strtolower($p->getName())] = ["pos1" => "$b->x:$b->y:$b->z"];
-            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "2.", $this->plugin->getMessage("SelectPoint")).TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
+            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "2.", "Zadan %1 vyberovy bod").TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
             $e->setCancelled();
         }
     }
@@ -40,7 +40,7 @@ class SelectionManager implements Listener{
         $tool = $this->cfg->getNested("Global.SelectionToolId");
         if($p->getInventory()->getItemInHand()->getId() === $tool){
             $this->selectors[strtolower($p->getName())] = ["pos2" => "$b->x:$b->y:$b->z"];
-            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "1.", $this->plugin->getMessage("SelectPoint")).TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
+            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "1.", "Zadan %1 vyberovy bod").TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
             $e->setCancelled();
         }
     }
