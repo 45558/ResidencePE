@@ -11,6 +11,7 @@ class ResidencePE extends PluginBase{
     public $selectors = [];
     public $msg;
     public $cfg;
+    public $economy;
     
     public function onEnable(){
         try {
@@ -29,6 +30,9 @@ class ResidencePE extends PluginBase{
         $this->msg = new Config($this->getDataFolder().$this->cfg->getNested("Global.Language").".yml", Config::YAML);
         $this->getServer()->getPluginManager()->registerEvents(new SelectionManager($this), $this);
         $this->getLogger()->info(TextFormat::GREEN."ResidencePE enabled!");
+        if($this->getServer()->getPluginManager()->getPlugin("PocketMoney") instanceof Plugin && $this->getServer()->getPluginManager()->isPluginEnabled("PocketMoney")){
+            $this->economy = "PocketMoney";
+        }
     }
     
     public function onDisable(){
