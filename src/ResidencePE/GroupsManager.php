@@ -16,4 +16,20 @@ class GroupsManager{
     public function getMaxResidencesPerGroup($group){
         return $this->cfg->getNested("Groups.$group.Residence.MaxResidences");
     }
+    
+    public function hasGroupPermission($group, $perm){
+        
+    }
+    
+    public function getLeaveMessage($group){
+        
+    }
+    
+    public function getEnterMessage($group){
+        
+    }
+    
+    public function getPlayerGroup($player){
+        
+    }
 }

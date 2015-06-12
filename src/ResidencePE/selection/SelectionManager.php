@@ -15,6 +15,7 @@ class SelectionManager implements Listener{
     
     public $plugin;
     public $cfg;
+    public $cfgman;
     public $loc1;
     public $loc2;
     
@@ -22,15 +23,16 @@ class SelectionManager implements Listener{
         $this->plugin = $plugin;
         $this->cfg = $plugin->cfg;
         $this->selectors = $plugin->selectors;
+        $this->cfgman = new ConfigManager($plugin);
     }
     
     public function onTouch(PlayerInteractEvent $e){
         $p = $e->getPlayer();
         $b = $e->getBlock();
-        $tool = $this->cfg->getNested("Global.SelectionToolId");
+        $tool = $this->cfgman->getSelectionToolId();
         if($p->getInventory()->getItemInHand()->getId() === $tool){
             $this->loc2[strtolower($p->getName())] = "$b->x:$b->y:$b->z";
-            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "2.", "Zadan %1 vyberovy bod").TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
+            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "2.", $this->plugin->getMessage("SelectPoint")).TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
             $e->setCancelled();
         }
     }
@@ -41,7 +43,7 @@ class SelectionManager implements Listener{
         $tool = $this->cfg->getNested("Global.SelectionToolId");
         if($p->getInventory()->getItemInHand()->getId() === $tool){
             $this->loc1[strtolower($p->getName())] = "$b->x:$b->y:$b->z";
-            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "1.", "Zadan %1 vyberovy bod").TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
+            $p->sendMessage(TextFormat::GREEN.str_replace("%1", "1.", $this->plugin->getMessage("SelectPoint")).TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
             $e->setCancelled();
         }
     }

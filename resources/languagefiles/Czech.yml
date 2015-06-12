@@ -25,22 +25,6 @@ Language:
     InvalidList: Neplatny seznam...
     InvalidFlag: Neplatna vlajka...
     InvalidFlagState: Neplatny status vlajky, musi byt true(t), false(f), nebo remove(r)
-    AreaExists: Jmeno oblasti jiz existuje.
-    AreaCreate: 'Residence ID %1 vytvorena'
-    AreaDiffWorld: Oblast je v jinem svete nez residence.
-    AreaCollision: 'Oblast koliduje s residenci %1'
-    AreaSubzoneCollision: 'Oblast koliduje se subzonou %1'
-    AreaNonExist: Takova oblast neexistuje.
-    AreaInvalidName: Neplatne jmeno oblasti...
-    AreaRename: 'Oblast prejmenovana z %1 na %2'
-    AreaRemove: 'Oblast %1 odstranena...'
-    AreaRemoveLast: Nelze odstranit posledni oblast v residenci.
-    AreaNotWithinParent: Oblast neni v prostoru materske residence.
-    AreaUpdate: Oblast aktualizovana...
-    AreaMaxPhysical: Dosahl jsi maximalniho poctu oblasti v dane residenci.
-    AreaSizeLimit: Velikost oblasti prekracuje povolene limity.
-    AreaHighLimit: 'Nelze ochranit takovou vysku, limit je %1'
-    AreaLowLimit: 'Nelze ochranit takovou hloubku, limit je is %1'
     NotInResidence: Nejsi v residenci.
     Kicked: 'Byl jsi vykopnut z residence'
     InResidence: 'Nachazis se v residenci %1'
@@ -48,14 +32,6 @@ Language:
     NonAdmin: Nejsi admin teto residence.
     AdminOnly: Pouze admini maji opravneni na tento prikaz.
     ChatDisabled: Chat v residenci vypnut...
-    SubzoneRename: 'Subzona %1 byla prejmenovana na %2'
-    SubzoneRemove: 'Subzona %1 byla odstranena.'
-    SubzoneCreate: 'Subzone %1 byla vytvorena.'
-    SubzoneCreateFail: 'Nelze vytvorit subzonu %1'
-    SubzoneExists: 'Subzona %1 uz existuje.'
-    SubzoneCollide: 'Subzona koliduje se subzonou %1'
-    SubzoneMaxDepth: Dosahl jsi maximalniho poctu subzon.
-    SubzoneSelectInside: Oba vyberove body musi byt uvnitr residence.
     SelectPoints: Vyber dva body pred pouzitim tohoto prikazu!
     SelectionSuccess: Vyber se zdaril!
     SelectionFail: Neplatny vyberovy prikaz...
@@ -102,7 +78,6 @@ Language:
     ResidenceForSale: 'Residence %1 je na prodej za %2'
     ResidenceStopSelling: Residence jiz neni na prodej.
     ResidenceTooMany: Jiz vlastnis maximalni pocet residenci.
-    ResidenceMaxRent: Jiz pronajimas maximalni pocet residenci.
     ResidenceAlreadyRent: Residence je jiz pronajimana...
     ResidenceNotForRent: Residence neni k pronajmu...
     ResidenceNotRented: Residence neni pronajimana.
@@ -110,16 +85,12 @@ Language:
     ResidenceRemoveRentable: 'Residence %1 jiz neni dalo k pronajmu.'
     ResidenceForRentSuccess: 'Residence %1 je nyni k pronajmuti za %2 za kazdy %3 den,dnu.'
     ResidenceRentSuccess: 'Pronajal sis residenci %1 na %2 dny,dnu.'
-    ResidenceAlreadyRented: 'Residence %1 je pronajata hraci %2'
     ResidenceAlreadyExists: 'Residence jmena %1 jiz existuje.'
     ResidenceCreate: 'Vytvoril jsi residenci %1!'
     ResidenceRename: 'Residence %1 byla prejmenovana na %2'
     ResidenceRemove: 'Residence %1 byla smazana...'
-    RentDisabled: Najimani je vypnuto...
-    RentDisableRenew: 'Nelze prodlouzit najem residence %1 dokud nevyprsi stavajici najem.'
-    RentEnableRenew: 'Residence %1 automaticky prodlouzi najem.'
-    RentableDisableRenew: 'V residenci %1 se po vyprseni najmu jiz najem neprodlouzi.'
-    RentableEnableRenew: 'V residenci %1 se po vyprseni najmu najem automaticky prodlouzi.'
+    ResidenceColide: 'Oblast koliduje s jinou residenci.'
+    ResidenceTooBig: 'Oblast presahuje tobe povolene limity'
     LandForSale: Pozemek je na prodej
     SellAmount: Cena
     LeaseExpire: Doba pronajmu
@@ -143,7 +114,7 @@ Language:
     TeleportNear: Byl jsi teleportovan k residenci.
     TeleportNoFlag: Nemas opravneni k teleportu do residence.
     SetTeleportLocation: Misto teleportu nastaveno...
-    HelpPageHeader: 'Napoveda  - %1 - str <%2 z %3>'
+    HelpPageHeader: 'Napoveda  - %1 - str < %2 z %3>'
     ListExists: Seznam jiz existuje...
     ListRemoved: Seznam byl odstranen...
     ListCreate: 'Byl vytvoren seznam %1'

@@ -3,7 +3,6 @@ namespace ResidencePE;
 
 class ConfigManager {
     protected $enableEconomy;
-    protected $allowEmptyResidences;
     protected $infoToolId;
     protected $selectionToolId;
     protected $autoSaveInt;
@@ -17,19 +16,15 @@ class ConfigManager {
         $this->cfg = $plugin->cfg;
     }
     
-    public function getEmptyResidences(){
-        return $this->cfg->getNested("Global.AllowEmptyResidences");
-    }
-    
     public function getSelectionToolId(){
         return $this->cfg->getNested("Global.SelectionToolId");
     }
     
-    public function getSelectionToolId(){
-        return $this->cfg->getNested("Global.SelectionToolId");
+    public function getInfoToolId(){
+        return $this->cfg->getNested("Global.InfoToolId");
     }
     
-    public function getSelectionToolId(){
-        return $this->cfg->getNested("Global.SelectionToolId");
+    public function getAutoSaveInt(){
+        return $this->cfg->getNested("Global.SaveInterval");
     }
 }

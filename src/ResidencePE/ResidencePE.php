@@ -40,7 +40,7 @@ class ResidencePE extends PluginBase{
     }
     
     public function getMessage($key){
-        return var_dump($this->msg->get($key));
+        return ($this->msg->getNested("Language.$key"));
     }
 }
 
