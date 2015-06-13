@@ -26,7 +26,7 @@ class AreaManager{
             $p->sendMessage(TextFormat::RED.$this->plugin->getMessage("ResidenceTooMany"));
             return;
         }
-        elseif($this->isColide($loc1, $loc2)){
+        elseif($this->checkCollision($loc1, $loc2, $level)){
             $p->sendMessage(TextFormat::RED.$this->plugin->getMessage("ResidenceColide"));
             return;
         }
@@ -76,11 +76,39 @@ class AreaManager{
         
     }
     
-    public function isColide($loc1, $loc2){
-        
+    public function checkCollision($loc1, $loc2, Level $level){
+        $res = new Config($this->plugin->getDataFolder()."res_".$level->getName());
+        $residences = $res->getAll();
+        $y = min($loc1->y, $loc2->y);
+        $z = min($loc1->y, $loc2->y);
+            for($x = min($loc1->x, $loc2->x); $x != max($loc1->x, $loc2->x); $x++){
+                foreach($residences["Residences"] as $r){
+                    if((min($r["Area"]["X1"], $r["Area"]["X2"]) <= $x) && (max($r["Area"]["X1"], $r["Area"]["X2"]) >= $x) && (min($r["Area"]["Y1"], $r["Area"]["Y2"]) <= $y) && (max($r["Area"]["Y1"], $r["Area"]["Y2"]) >= $y) && (min($r["Area"]["Z1"], $r["Area"]["Z2"]) <= $z) && (max($r["Area"]["X1"], $r["Area"]["X2"]) >= $z)){
+                        return true;
+                    }
+                }
+                if($y == max($loc1->y, $loc2->y) && $x == max($loc1->x, $loc2->x) && $z == max($loc1->z, $loc2->z)){
+                    break;
+                }
+                if($x == max($loc1->x, $loc2->x)){
+                    if($z == max($loc1->z, $loc2->z)){
+                        $y++;
+                        $x = min($loc1->x, $loc2->x);
+                        $z = min($loc1->z, $loc2->z);
+                    }
+                    else{
+                        $x = min($loc1->x, $loc2->x);
+                        $z++;
+                    }
+                }
+            }
     }
     
     public function residenceLimits($loc1, $loc2){
+        
+    }
+    
+    public function getContains($pos1, $pos2){
         
     }
 }
