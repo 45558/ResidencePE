@@ -42,4 +42,12 @@ class GroupsManager{
             return $file->get("Group");
         }
     }
+    
+    public function getDefaultGroup(){
+        if($this->cfg->getNested("Groups.Settings.DefaultGroup") !== null){
+            return $this->cfg->getNested("Groups.Settings.DefaultGroup");
+        }
+        $this->plugin->getLogger()->critical(TextFormat::DARK_RED."Default group doesn´t exist");
+        return "";
+    }
 }

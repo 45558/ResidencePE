@@ -52,40 +52,35 @@ class AreaManager{
         if(!file_exists($this->plugin->getDataFolder()."residences/")){
             @mkdir($this->plugin->getDataFolder()."residences/", 0777, true);
         }
+        $res = $this->getResFile($rname, $level);
         if($this->resExist($rname)){
-            $p->sendMessage(TextFormat::RED.str_replace("%1", TextFormat::YELLOW."$rname".TextFormat::RED, $this->plugin->getMessage("ResidenceAlreadyExist")));
-            return;
-        }
-        $res = $this->getResFile($rname);
-        if($res->getNested("Residences.$rname") != null){
             $p->sendMessage(TextFormat::RED.str_replace("%1", TextFormat::YELLOW.$rname.TextFormat::RED, $this->plugin->getMessage("ResidenceAlreadyExists")));
             return;
         }
-        $res->setNested("LeaveMessage", $this->groups->getLeaveMessage($this->groups->getPlayerGroup($p)));
-        $res->setNested("EnterMessage", $this->group->getEnterMessage($this->groups->getPlayerGroup($p)));
-        $res->setNested("Permissions.PlayerFlags.".strtolower($p->getName()).".container", "true");
-        $res->setNested("Permissions.PlayerFlags.".strtolower($p->getName()).".ignite", "true");
-        $res->setNested("Permissions.PlayerFlags.".strtolower($p->getName()).".move", "true");
-        $res->setNested("Permissions.PlayerFlags.".strtolower($p->getName()).".build", "true");
-        $res->setNested("Permissions.PlayerFlags.".strtolower($p->getName()).".use", "true");
-        $res->setNested("Permissions.GroupFlags", "");
-        $res->setNested("Permissions.AreaFlags.container", "false");
-        $res->setNested("Permissions.AreaFlags.ignite", "false");
-        $res->setNested("Permissions.AreaFlags.build", "false");
-        $res->setNested("Permissions.AreaFlags.firespread", "false");
-        $res->setNested("Permissions.AreaFlags.use", "false");
-        $res->setNested("Permissions.AreaFlags.pvp", "false");
-        $res->setNested("Permissions.AreaFlags.tnt", "false");
-        $res->setNested("Permissions.AreaFlags.flow", "false");
-        $res->set("OwnerUUID", $p->getUniqueId());
-        $res->set("OwnerName", strtolower($p->getName()));
-        $res->setNested("Area.X1", $loc1->x);
-        $res->setNested("Area.Y1", $loc1->y);
-        $res->setNested("Area.Z1", $loc1->z);
-        $res->setNested("Area.X2", $loc2->x);
-        $res->setNested("Area.Y2", $loc2->y);
-        $res->setNested("Area.Z2", $loc2->z);
-        $res->setNested("Area.Level", $level);
+        $res->setNested("Residences.$rname.LeaveMessage", $this->groups->getLeaveMessage($this->groups->getPlayerGroup($p)));
+        $res->setNested("Residences.$rname.EnterMessage", $this->group->getEnterMessage($this->groups->getPlayerGroup($p)));
+        $res->setNested("Residences.$rname.Permissions.PlayerFlags.".strtolower($p->getName()).".container", "true");
+        $res->setNested("Residences.$rname.Permissions.PlayerFlags.".strtolower($p->getName()).".ignite", "true");
+        $res->setNested("Residences.$rname.Permissions.PlayerFlags.".strtolower($p->getName()).".move", "true");
+        $res->setNested("Residences.$rname.Permissions.PlayerFlags.".strtolower($p->getName()).".build", "true");
+        $res->setNested("Residences.$rname.Permissions.PlayerFlags.".strtolower($p->getName()).".use", "true");
+        $res->setNested("Residences.$rname.Permissions.GroupFlags", "");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.container", "false");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.ignite", "false");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.build", "false");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.firespread", "false");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.use", "false");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.pvp", "false");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.tnt", "false");
+        $res->setNested("Residences.$rname.Permissions.AreaFlags.flow", "false");
+        $res->set("Residences.$rname.OwnerUUID", $p->getUniqueId());
+        $res->set("Residences.$rname.OwnerName", strtolower($p->getName()));
+        $res->setNested("Residences.$rname.Area.X1", $loc1->x);
+        $res->setNested("Residences.$rname.Area.Y1", $loc1->y);
+        $res->setNested("Residences.$rname.Area.Z1", $loc1->z);
+        $res->setNested("Residences.$rname.Area.X2", $loc2->x);
+        $res->setNested("Residences.$rname.Area.Y2", $loc2->y);
+        $res->setNested("Residences.$rname.Area.Z2", $loc2->z);
         $res->save();
         $res->reload();
     }
@@ -120,16 +115,22 @@ class AreaManager{
         return false;
     }
     
-    public function resExist($res){
-        if(is_link($this->plugin->getDataFolder()."residences/".substr($res, 0, 1)."/$res.yml")){
-            return true;
+    public function resExist($rname){
+        foreach(glob($this->plugin->getDataFolder()."residences/res_*.yml") as $file){
+            $res = new Config($file, Config::YAML);
+            if($res->getNested("Residences.$rname") !== null){
+                return $file;
+            }
         }
         return false;
     }
     
-    public function getResFile($rname){
-        if($this->resExist($rname)){
-            return new Config($this->plugin->getDataFolder()."residences/".substr($rname, 0, 1)."/$rname.yml");
+    public function getResFile($rname, Level $level){
+        if($level != null){
+            return new Config($this->plugin->getDataFolder()."residences/res_{$level->getName()}.yml");
+        }
+        if($this->resExist($rname) != false){
+            return new Config($this->resExist($rname), Config::YAML);
         }
         return null;
     }

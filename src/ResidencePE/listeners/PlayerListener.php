@@ -10,9 +10,11 @@ use pocketmine\utils\Config;
 class PlayerListener implements Listener{
     
     public $plugin;
+    public $groups;
     
     public function __construct(ResidencePE $plugin){
         $this->plugin = $plugin;
+        $this->groups = new GroupsManager($plugin);
     }
     
     public function onLogin(PlayerLoginEvent $e){
@@ -23,7 +25,7 @@ class PlayerListener implements Listener{
         if(!is_link($this->plugin->getDataFolder()."players/".strtolower(substr($p->getName(), 0, 1))."/".strtolower($p->getName()))){
             $file = new Config($this->plugin->getDataFolder()."players/".strtolower(substr($p->getName(), 0, 1))."/".strtolower($p->getName()), Config::YAML);
             $file->set(strtolower($p->getName()).".Residences", "");
-            $file->set(strtolower($p->getName()).".Group", "");
+            $file->set(strtolower($p->getName()).".Group", $this->groups->getDefaultGroup());
         }
     }
 }

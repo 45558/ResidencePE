@@ -28,7 +28,7 @@ Global:
 Groups:
     Settings:
        #all new players will be automatically selected to this group
-       DefaultGroup: true
+       DefaultGroup: Default
     Default:
        Residence:
            # Determins if this group can create residences or not.  This option can be overriden with the permissions node 'residence.create'
