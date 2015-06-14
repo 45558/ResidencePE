@@ -24,49 +24,11 @@ Global:
             damage: true
             tnt: true
             pvp: true
-    # This gives permission to change certain flags to all players.
-    FlagPermission:
-        move: true
-        build: true
-        place: true
-        destroy: true
-        use: true
-        container: true
-        pvp: true
-        tp: true
-        ignite: true
-        firespread: true
-        bucket: true
-        flow: true
-        lavaflow: true
-        waterflow: true
-        tnt: true
-        healing: true
-        door: true
-        table: true
-        bed: true
-        cake: true
-        burn: true
-        explode: false
-    # These are default flags applied to all residences from any user group.
-    ResidenceDefault:
-        build: false
-        use: false
-        container: false
-        pvp: false
-        tnt: false
-        flow: false
-        ignite: false
-        firespread: false
-    # These are default flags applied to the residence creator of any group.
-    CreatorDefault:
-        build: true
-        move: true
-        use: true
-        ignite: true
-        container: true
 # These groups correspond to the Permissions groups defined in your '<worldname>.yml'
 Groups:
+    Settings:
+       #all new players will be automatically selected to this group
+       DefaultGroup: true
     Default:
        Residence:
            # Determins if this group can create residences or not.  This option can be overriden with the permissions node 'residence.create'

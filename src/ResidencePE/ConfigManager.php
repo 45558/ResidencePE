@@ -27,4 +27,28 @@ class ConfigManager {
     public function getAutoSaveInt(){
         return $this->cfg->getNested("Global.SaveInterval");
     }
+    
+    public function getFlagPermission($key){
+        $content = $this->cfg->getAll()["Global"]["FlagPermission"][$key];
+        if(isset($content)){
+            return $content;
+        }
+        return null;
+    }
+    
+    public function getResDefault($key){
+        $content = $this->cfg->getAll()["Global"]["ResidenceDefault"][$key];
+        if(isset($content)){
+            return $content;
+        }
+        return null;
+    }
+    
+    public function getCreatorDefault($key){
+        $content = $this->cfg->getAll()["Global"]["CreatorDefault"][$key];
+        if(isset($content)){
+            return $content;
+        }
+        return null;
+    }
 }

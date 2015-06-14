@@ -6,30 +6,40 @@ class GroupsManager{
     
     public $cfg;
     public $plugin;
-    public $groups;
     
     public function __construct(ResidencePE $plugin) {
         $this->plugin = $plugin;
         $this->cfg = $plugin->cfg;
     }
     
-    public function getMaxResidencesPerGroup($group){
-        return $this->cfg->getNested("Groups.$group.Residence.MaxResidences");
+    public function getGroupMainPermission($group, $key){
+        return $this->cfg->getNested("Groups.$group.Residence.$key");
     }
     
-    public function hasGroupPermission($group, $perm){
-        
+    public function getGroupCreatordefault($group, $key){
+        return $this->cfg->getNested("Groups.$group.Flags.CreatorDefault.$key");
+    }
+    
+    public function getGroupFlagPermission($group, $key){
+        return $this->cfg->getNested("Groups.$group.Flags.Permissions.$key");
+    }
+    
+    public function getGroupResDefault($group, $perm){
+        return $this->cfg->getNested("Groups.$group.Flags.ResidenceDefault.$key");
     }
     
     public function getLeaveMessage($group){
-        
+        return $this->cfg->getNested("Groups.$group.Messaging.DefaultLeave.$key");
     }
     
     public function getEnterMessage($group){
-        
+        return $this->cfg->getNested("Groups.$group.Messaging.DefaultEnter.$key");
     }
     
-    public function getPlayerGroup($player){
-        
+    public function getPlayerGroup(Player $p){
+        if(is_link($this->plugin->getDataFolder()."players/".strtolower(substr($p->getName(), 0, 1))."/".strtolower($p->getName()).".yml")){
+            $file = new Config($this->plugin->getDataFolder()."players/".strtolower(substr($p->getName(), 0, 1))."/".strtolower($p->getName()).".yml", Config::YAML);
+            return $file->get("Group");
+        }
     }
 }

@@ -40,7 +40,7 @@ class SelectionManager implements Listener{
     public function onBlockBreak(BlockBreakEvent $e){
         $p = $e->getPlayer();
         $b = $e->getBlock();
-        $tool = $this->cfg->getNested("Global.SelectionToolId");
+        $tool = $this->cfgman->getSelectionToolId();
         if($p->getInventory()->getItemInHand()->getId() === $tool){
             $this->loc1[strtolower($p->getName())] = "$b->x:$b->y:$b->z";
             $p->sendMessage(TextFormat::GREEN.str_replace("%1", "1.", $this->plugin->getMessage("SelectPoint")).TextFormat::RED."($b->x, $b->y, $b->z)".TextFormat::GREEN."!");
