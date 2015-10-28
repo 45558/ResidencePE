@@ -1,0 +1,29 @@
+#area file
+Name: default
+Owner: player
+Pos1:
+  X: 0
+  Y: 0
+  Z: 0
+Pos2:
+  X: 0
+  Y: 0
+  Z: 0
+PlayerFlags:
+  player:
+    container: true
+    ignite: true
+    move: true
+    build: true
+    use: true
+
+AreaFlags:
+  container: false
+  ignite: false
+  build: false
+  use: false
+  pvp: false
+  tnt: false
+  flow: false
+EnterMessage: Welcome %player to %residence, owned by %owner.
+LeaveMessage: Now leaving %residence.

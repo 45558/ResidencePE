@@ -333,32 +333,6 @@ CommandHelp: #this is just a holder node, that holds the entire help
                   Info:
                     - 'Pouzij: /res subzone <nazev residence> [nazev subzony]'
                     - 'Pokud vynechas nazev residence bude pouzito na uktualni res ve ktere stojis.'
-                area:
-                    Description: Sprava fyzickych uzemi.
-                    SubCommands:
-                        list:
-                            Description: Seznam fyzickych uzemi v residenci
-                            Info:
-                                - 'Pouzij: /res area list [nazev residence] <strana>'
-                        listall:
-                            Description: Seznam souradnic a dalsich info o uzemich
-                            Info:
-                                - 'Pouzij: /res area listall [nazev residence] <strana>'
-                        add:
-                            Description: Pridat fyzickeho uzemi residence
-                            Info:
-                                - 'Pouzij: /res area add [nazev residence] [areaID]'
-                                - 'Prvne musis vybrat dva body.'
-                        remove:
-                            Description: Odstranit fyzicke uzemi residence
-                            Info:
-                                - 'Pouzij: /res area remove [nazev residence] [areaID]'
-                        replace:
-                            Description: Premisteni fyzickeho uzemi residence
-                            Info:
-                                - 'Pouzij: /res area replace [nazev residence] [areaID]'
-                                - 'Prvne musis vybrat dva body.'
-                                - 'Premisti uzemi.'
                 info:
                     Description: Zobrazeni info o residenci.
                     Info:
@@ -376,24 +350,6 @@ CommandHelp: #this is just a holder node, that holds the entire help
                         - 'Nastavi uvitaci nebo odchozi zpravu residence.'
                         - 'Pouzij: /res message <nazev residence> remove [enter/leave]'
                         - 'Odstrani uvitaci nebo odchoz zpravu.'
-                lease:
-                    Description: Sprava pronajmu residence
-                    Info:
-                        - 'Pouzij: /res lease [renew/cost] [nazev residence]'
-                        - '/res lease cost zobrazi cenu za prodlouzeni najmu residence.'
-                        - '/res lease renew prodlozi dobu najmu pokud mate dost penez.'
-                    SubCommands:
-                        set:
-                            Description: Nastaveni doby pronajmu (jen admini)
-                            Info:
-                                - 'Pouzij: /resadmin lease set [nazev residence] [#days/infinite]'
-                                - 'Nastavi dobu pronajmu na x dni nebo na nekonecno.'
-                bank:
-                    Description: Sprava penez v residenci
-                    Info:
-                        - 'Pouzij: /res bank [vklad/vyber] [castka]'
-                        - 'Musis stat v residenci'
-                        - 'Musis mit nastavenu vlajku +bank.'
                 tp:
                     Description: Teleport do residence
                     Info:
@@ -424,13 +380,6 @@ CommandHelp: #this is just a holder node, that holds the entire help
                     Info:
                         - 'Pouzij: /res gset <nazev residence> [skupina] [vlajka] [true/false/remove]'
                         - 'pro seznam vlajek pouzij /res flags ?'
-                lset:
-                    Description: Zmena blacklistu a ignorelistu
-                    Info:
-                        - 'Pouzij: /res lset <nazev residence> [blacklist/ignorelist] [material]'
-                        - 'Pouzij: /res lset <nazev residence> info'
-                        - 'Material na blacklistu je prevenci pred jejich pokladanim v residenci.'
-                        - 'Material na ignorelistu je vyjmut z ochrany residence.'
                 flags:
                     Description: Seznam vlajek
                     Info:
